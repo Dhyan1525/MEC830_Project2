@@ -1,0 +1,47 @@
+#include <Stepper.h>
+
+Stepper steppermotor1(2048, 13, 11, 12, 10);
+Stepper steppermotor2(2048, 5, 3, 4, 2);                                                                                     
+
+void setup ( ) {
+  pinMode (A0, INPUT) ;                 
+  pinMode (A1, INPUT) ; 
+  steppermotor1.setSpeed(20);
+  steppermotor2.setSpeed(20);                     
+}
+
+void loop(){
+  int y = analogRead (A1) ;  
+  int x = analogRead(A0);
+
+  if (y <= 600){
+    for (int lt = 0; lt <= 1200; lt++) {
+      steppermotor1.step(1);
+      steppermotor2.step(1);}
+    }
+  else if (y >= 900){
+    for (int rt = 0; rt <= 1200; rt++) {
+      steppermotor1.step(-1);
+      steppermotor2.step(-1);}
+    }
+
+  if((x > 650) && (x < 875)){
+    digitalWrite(13, LOW);
+    digitalWrite(12, LOW);
+    digitalWrite(11, LOW);
+    digitalWrite(10, LOW);
+    digitalWrite(5, LOW);
+    digitalWrite(4, LOW);
+    digitalWrite(3, LOW);
+    digitalWrite(2, LOW);
+  }
+  if (x >= 875){
+     steppermotor1.step(1);
+     steppermotor2.step(-1);
+    }
+  if (x <= 650){
+     steppermotor1.step(-1);
+     steppermotor2.step(1);
+    }
+
+}
