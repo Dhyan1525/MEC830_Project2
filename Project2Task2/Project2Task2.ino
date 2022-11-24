@@ -9,23 +9,23 @@ void setup(){
 
 void loop(){
   
- for (int fd = 0; fd <= 1200; fd++) {
+ for (int fd = 0; fd <= 12990; fd++) {
       steppermotor1.step(-1);
       steppermotor2.step(1);
       }
- for (int rt = 0; rt <= 1200; rt++) {
+ for (int rt = 0; rt <= 1145; rt++) {
       steppermotor1.step(-1);
       steppermotor2.step(-1);
       }
- for (int fd = 0; fd <= 1200; fd++) {
+ for (int fd = 0; fd <= 12990; fd++) {
       steppermotor1.step(-1);
       steppermotor2.step(1);
       }
- for (int lt = 0; lt <= 1200; lt++) {
+ for (int lt = 0; lt <= 1145; lt++) {
       steppermotor1.step(1);
       steppermotor2.step(1);
       }
- for (int fd = 0; fd <= 1200; fd++) {
+ for (int fd = 0; fd <= 13900; fd++) {
       steppermotor1.step(-1);
       steppermotor2.step(1);
       }
